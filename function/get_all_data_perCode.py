@@ -58,9 +58,8 @@ def getListAllData(list_code, driver):
             
             # Get page source
             page_source = driver.page_source
-            
             # Get page code
-            code = re.search(r'id=(\w+)', page_source).group(1)
+            code = re.search(r'id=(\w+)', driver.current_url).group(1)
 
             # Use BeautifulSoup to parse the HTML content
             soup = BeautifulSoup(page_source, 'html.parser')
