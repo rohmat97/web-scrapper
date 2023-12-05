@@ -2,6 +2,7 @@
   
   
 import csv
+import re
 from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -57,6 +58,9 @@ def getListAllData(list_code, driver):
             
             # Get page source
             page_source = driver.page_source
+            
+            # Get page code
+            code = re.search(r'id=(\w+)', page_source).group(1)
 
             # Use BeautifulSoup to parse the HTML content
             soup = BeautifulSoup(page_source, 'html.parser')
@@ -74,7 +78,7 @@ def getListAllData(list_code, driver):
                 rows.pop(1)
                 rows.pop(1)
                 # Extract and write existing table data with the new column as the first column to CSV
-                with open('file_csv/'+item["flag"]+'_table_data.csv', mode='w', newline='', encoding='utf-8') as file:
+                with open('file_csv/'+code+'_table_data.csv', mode='w', newline='', encoding='utf-8') as file:
                     writer = csv.writer(file)
                     # writer.writerow(headers)
                     for row in rows[1:]:
@@ -82,7 +86,7 @@ def getListAllData(list_code, driver):
                         row_data = [col.get_text(strip=True) for col in cols]
 
                         # Add dummy data for the new column (you can modify this logic)
-                        new_column_data = item["flag"]
+                        new_column_data = code
                         row_data.insert(0, new_column_data)
 
                         writer.writerow(row_data)
