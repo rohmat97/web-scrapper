@@ -16,10 +16,11 @@ gecko_path = "path/to/geckodriver"
 # options.add_argument(f"marionette;executable_path={gecko_path}")
 options = webdriver.FirefoxOptions()
 options.add_argument("--headless")
+options.add_argument(f"marionette;executable_path={gecko_path}")
 
 # Open Firefox WebDriver with specified options
 # driver = webdriver.Firefox(options=options)
-driver = webdriver.Firefox(executable_path=gecko_path, options=options)
+driver = webdriver.Firefox(options=options)
 
 
 getListMenu(driver)
