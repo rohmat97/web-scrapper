@@ -90,7 +90,7 @@ def getListAllData(list_code, driver):
 
                         writer.writerow(row_data)
 
-                print("New column added as the first column in 'table_data.csv'")
+                print("New column added as the first column in"+code+" table_data.csv ")
             else:
                 print("Table not found on the webpage.")
 
