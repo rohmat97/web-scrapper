@@ -7,15 +7,19 @@ from function.get_list_menu import getListMenu
 from function.get_all_data_perCode import getListAllData
 
 # Replace 'path/to/geckodriver' with the actual path to your GeckoDriver executable
-gecko_path = './geckodriver'
+# gecko_path = './geckodriver'
+gecko_path = "path/to/geckodriver"
 
 # Set GeckoDriver executable path using executable_path argument in options
+# options = webdriver.FirefoxOptions()
+# options.binary_location = '/Applications/Firefox.app/Contents/MacOS/firefox-bin'  # Update with your Firefox binary location
+# options.add_argument(f"marionette;executable_path={gecko_path}")
 options = webdriver.FirefoxOptions()
-options.binary_location = '/Applications/Firefox.app/Contents/MacOS/firefox-bin'  # Update with your Firefox binary location
-options.add_argument(f"marionette;executable_path={gecko_path}")
+options.add_argument("--headless")
 
 # Open Firefox WebDriver with specified options
-driver = webdriver.Firefox(options=options)
+# driver = webdriver.Firefox(options=options)
+driver = webdriver.Firefox(executable_path=gecko_path, options=options)
 
 
 getListMenu(driver)
