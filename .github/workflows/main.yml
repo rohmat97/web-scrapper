@@ -27,5 +27,9 @@ jobs:
         run: |
           pip install selenium
 
+      - name: Install bs4
+        run: |
+          pip install bs4
+
       - name: Run Selenium Tests
         run: python index.py
