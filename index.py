@@ -7,7 +7,7 @@ from function.get_list_menu import getListMenu
 from function.get_all_data_perCode import getListAllData
 
 # Replace 'path/to/geckodriver' with the actual path to your GeckoDriver executable
-gecko_path = 'path/to/geckodriver'
+gecko_path = './geckodriver'
 
 # Set GeckoDriver executable path using executable_path argument in options
 options = webdriver.FirefoxOptions()

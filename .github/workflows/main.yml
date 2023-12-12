@@ -36,8 +36,8 @@ jobs:
           mkdir -p path/to
           wget -q "https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-linux64.tar.gz" -O path/to/geckodriver.tar.gz
           tar -xzf path/to/geckodriver.tar.gz -C path/to/
-          chmod +x path/to/geckodriver
-          export PATH=$PATH:$(pwd)/path/to/
+          chmod +x ./geckodriver
+          export PATH=$PATH:$(pwd)/
 
       - name: Run Selenium Tests
         run: python index.py
