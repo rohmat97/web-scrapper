@@ -34,7 +34,7 @@ if loaded_data:
 folder_path = './file_csv'
 
 # Specify the path for the zip file
-zip_file_path = './file_csv/archive.zip'
+zip_file_path = './compressed/stock'
 
 # Create a zip file from the folder
 shutil.make_archive(zip_file_path, 'zip', folder_path)
